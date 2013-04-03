@@ -1,3 +1,3 @@
 #!/bin/sh
 
-puppet apply --modulepath=modules -v -e 'include dashboard::production'
+sudo puppet apply --modulepath=modules -v -e 'include dashboard::production'
