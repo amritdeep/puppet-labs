@@ -1,7 +1,5 @@
 class dashboard::production {
 
-  notify {"Setting up the production environment":}
-
   user { "www":
     comment => "Dashboad User",
     home => "/home/www",
@@ -29,6 +27,19 @@ class dashboard::production {
     ensure => running 
   }
 
+  package { "postgresql-9.1": 
+    ensure => present 
+  }
+
+  package { "postgresql-client-9.1": 
+    ensure => present 
+  }
+
+  service { "postgresql": 
+    ensure => running,
+    require => Package["postgresql-9.1", "postgresql-client-9.1"],
+  }
+
   file {"logfile":
     path    => "/var/log/nginx/dashboard.access.log",
     ensure  => present,
@@ -46,7 +57,7 @@ class dashboard::production {
     mode    => 0644,
     source  => "puppet:///modules/dashboard/static/dashboard",
     require => File["logfile", "unwanted-default"],
-    notify  => "nginx"
+    notify  => Service["nginx"],
   }
 
   file {"dashboard-enabled":
@@ -56,6 +67,5 @@ class dashboard::production {
     target  => "/etc/nginx/sites-available/dashboard",
     require => File["dashboard-avaliable"],
   }
-
 
 }
