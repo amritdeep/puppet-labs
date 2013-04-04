@@ -18,6 +18,4 @@ class dashboard::tomcat {
     require => Package["tomcat7"],
   }
 
-  notify {"just a test":}
-
 }

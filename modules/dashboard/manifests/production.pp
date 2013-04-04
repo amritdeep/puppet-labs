@@ -8,7 +8,15 @@ class dashboard::production {
     comment => "Dashboad User",
     home => "/home/www",
     ensure => present,
+    group  => "www-data",
     shell => "/bin/bash",
+  }
+
+  file { "app":
+    path    => "/home/www/app"
+    ensure  =>  directory
+    owner   => "www"
+    group   => "www-data"
   }
 
   package { "openjdk-7-jdk": 
