@@ -17,6 +17,7 @@ class dashboard::production {
     ensure  =>  directory,
     owner   => "www",
     group   => "www-data",
+    require => User["www"]
   }
 
   package { "openjdk-7-jdk": 
