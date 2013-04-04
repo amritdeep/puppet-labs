@@ -10,6 +10,7 @@ class dashboard::production {
     ensure  => present,
     gid     => "www-data",
     shell   => "/bin/bash",
+    managehome   => true,
   }
 
   file { "app":
