@@ -13,10 +13,10 @@ class dashboard::production {
   }
 
   file { "app":
-    path    => "/home/www/app"
-    ensure  =>  directory
-    owner   => "www"
-    group   => "www-data"
+    path    => "/home/www/app",
+    ensure  =>  directory,
+    owner   => "www",
+    group   => "www-data",
   }
 
   package { "openjdk-7-jdk": 
