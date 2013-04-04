@@ -1,6 +1,7 @@
 class dashboard::production {
 
   include dashboard::nginx
+  include dashboard::java
   include dashboard::tomcat
   include dashboard::postgresql
 
@@ -22,15 +23,12 @@ class dashboard::production {
   }
 
   file { "app":
-    path    => "/home/www/app",
+    path    => "/home/www/app/dashboard",
     ensure  =>  directory,
     owner   => "www",
     group   => "www-data",
+    recurse => true,
     require => File["home"],
-  }
-
-  package { "openjdk-7-jdk": 
-    ensure  => present 
   }
 
 }
