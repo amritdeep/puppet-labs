@@ -18,8 +18,8 @@ $ chmod u+x setup.sh
 
 $ ./setup.sh
 
-$ sudo -u postgres createuser -D -A -P dashboard_prod
+$ sudo -u postgres createuser -D -A -P dashboard
 
-$ sudo -u postgres createdb -O dashboard_prod dashboard_prod
+$ sudo -u postgres createdb -O dashboard dashboard
 
 $ sudo passwd www
