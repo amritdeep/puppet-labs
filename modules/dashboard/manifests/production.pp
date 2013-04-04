@@ -18,7 +18,8 @@ class dashboard::production {
     ensure  =>  directory,
     owner   => "www",
     group   => "www-data",
-    require => User["www"]
+    require => User["www"],
+    recurse => true,
   }
 
   package { "openjdk-7-jdk": 
