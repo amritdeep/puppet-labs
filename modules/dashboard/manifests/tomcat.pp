@@ -10,7 +10,7 @@ class dashboard::tomcat {
   }
 
   file {"tomcat-users":
-    path    => "/etc/tomcat7/conf/tomcat-users.xml",
+    path    => "/etc/tomcat7/tomcat-users.xml",
     ensure  => present,
     mode    => 0644,
     source  => "puppet:///modules/dashboard/static/tomcat-users",
