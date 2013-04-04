@@ -13,13 +13,20 @@ class dashboard::production {
     managehome   => true,
   }
 
+  file { "home":
+    path    => "/home/www",
+    ensure  =>  directory,
+    owner   => "www",
+    group   => "www-data",
+    require => User["www"],
+  }
+
   file { "app":
     path    => "/home/www/app",
     ensure  =>  directory,
     owner   => "www",
     group   => "www-data",
-    require => User["www"],
-    recurse => true,
+    require => File["home"],
   }
 
   package { "openjdk-7-jdk": 
