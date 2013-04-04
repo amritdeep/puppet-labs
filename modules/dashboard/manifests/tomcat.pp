@@ -10,8 +10,14 @@ class dashboard::tomcat {
     require => Package["tomcat7"],
   }
 
+  exec { "purge-root":
+    command => "rm -rf /var/lib/tomcat7/webapps/*"
+  }
+
   service { "tomcat7": 
-    ensure => running 
+    ensure => running,
+    require => Package["tomcat7"],
+    require => Exec["purge-root"], 
   }
 
   file {"tomcat-users":
