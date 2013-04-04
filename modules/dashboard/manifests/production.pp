@@ -6,10 +6,10 @@ class dashboard::production {
 
   user { "www":
     comment => "Dashboad User",
-    home => "/home/www",
-    ensure => present,
-    group  => "www-data",
-    shell => "/bin/bash",
+    home    => "/home/www",
+    ensure  => present,
+    gid     => "www-data",
+    shell   => "/bin/bash",
   }
 
   file { "app":
@@ -20,7 +20,7 @@ class dashboard::production {
   }
 
   package { "openjdk-7-jdk": 
-    ensure => present 
+    ensure  => present 
   }
 
 }
