@@ -5,6 +5,11 @@ class dashboard::tomcat {
     require => Package["openjdk-7-jdk"],
   }
 
+  package { "tomcat7-admin": 
+    ensure => present,
+    require => Package["tomcat7"],
+  }
+
   service { "tomcat7": 
     ensure => running 
   }
