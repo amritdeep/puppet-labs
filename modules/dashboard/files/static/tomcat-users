@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomcat-users>
-  <user password="manager" roles="manager-script" username="manager"/>
+  <user password="manager" roles="manager-script" name="manager"/>
 </tomcat-users>
