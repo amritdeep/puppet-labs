@@ -5,6 +5,10 @@ class dashboard::production {
   include dashboard::tomcat
   include dashboard::postgresql
 
+  Exec {
+    path => "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  }
+
   user { "www":
     comment => "Dashboad User",
     home    => "/home/www",
