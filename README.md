@@ -10,7 +10,7 @@ $ sudo apt-get install puppet-common
 
 $ sudo apt-get install git
 
-$ git clone git@githuben.intranet.mckinsey.com:Rocky-Jaiswal/dashboard-devops.git
+$ git clone git@github.com:rocky-jaiswal/dashboard-devops.git
 
 $ cd dashboard-devops
 
